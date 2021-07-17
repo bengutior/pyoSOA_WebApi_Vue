@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="PlatziModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Alumno">
+    <Key>
+      <PropertyRef Name="idalumno" />
+    </Key>
+    <Property Name="idalumno" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="usu_nombre" Type="varchar" MaxLength="50" />
+    <Property Name="alu_correo" Type="varchar" MaxLength="50" />
+    <Property Name="alu_contrasena" Type="varchar" MaxLength="50" />
+    <Property Name="alu_nombres" Type="varchar" MaxLength="50" />
+    <Property Name="aluapellidos" Type="varchar" MaxLength="50" />
+    <Property Name="alutelefono" Type="int" />
+    <Property Name="resp_w" Type="varchar" MaxLength="20" />
+    <Property Name="compromiso_hr" Type="int" />
+    <Property Name="interes" Type="varchar" MaxLength="50" />
+    <Property Name="escuela" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Empresa">
+    <Key>
+      <PropertyRef Name="idempresa" />
+    </Key>
+    <Property Name="idempresa" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="nombre" Type="varchar" MaxLength="50" />
+    <Property Name="correo" Type="varchar" MaxLength="50" />
+    <Property Name="razon" Type="varchar" MaxLength="50" />
+    <Property Name="telefono" Type="varchar" MaxLength="50" />
+    <Property Name="tamaño" Type="varchar" MaxLength="50" />
+    <Property Name="nro_sus" Type="int" />
+  </EntityType>
+  <EntityContainer Name="PlatziModelStoreContainer">
+    <EntitySet Name="Alumno" EntityType="Self.Alumno" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Empresa" EntityType="Self.Empresa" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

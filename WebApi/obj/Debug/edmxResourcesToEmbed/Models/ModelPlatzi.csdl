@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="PlatziModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Alumno">
+    <Key>
+      <PropertyRef Name="idalumno" />
+    </Key>
+    <Property Name="idalumno" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="usu_nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="alu_correo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="alu_contrasena" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="alu_nombres" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="aluapellidos" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="alutelefono" Type="Int32" />
+    <Property Name="resp_w" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="compromiso_hr" Type="Int32" />
+    <Property Name="interes" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="escuela" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityContainer Name="PlatziEntities1" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Alumno" EntityType="Self.Alumno" />
+    <EntitySet Name="Empresa" EntityType="PlatziModel.Empresa" />
+  </EntityContainer>
+  <EntityType Name="Empresa">
+    <Key>
+      <PropertyRef Name="idempresa" />
+    </Key>
+    <Property Name="idempresa" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="correo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="razon" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="telefono" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="tamaño" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="nro_sus" Type="Int32" />
+  </EntityType>
+</Schema>

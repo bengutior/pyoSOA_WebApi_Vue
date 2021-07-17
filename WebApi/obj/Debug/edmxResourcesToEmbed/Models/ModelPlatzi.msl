@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="PlatziModelStoreContainer" CdmEntityContainer="PlatziEntities1">
+    <EntitySetMapping Name="Alumno">
+      <EntityTypeMapping TypeName="PlatziModel.Alumno">
+        <MappingFragment StoreEntitySet="Alumno">
+          <ScalarProperty Name="idalumno" ColumnName="idalumno" />
+          <ScalarProperty Name="usu_nombre" ColumnName="usu_nombre" />
+          <ScalarProperty Name="alu_correo" ColumnName="alu_correo" />
+          <ScalarProperty Name="alu_contrasena" ColumnName="alu_contrasena" />
+          <ScalarProperty Name="alu_nombres" ColumnName="alu_nombres" />
+          <ScalarProperty Name="aluapellidos" ColumnName="aluapellidos" />
+          <ScalarProperty Name="alutelefono" ColumnName="alutelefono" />
+          <ScalarProperty Name="resp_w" ColumnName="resp_w" />
+          <ScalarProperty Name="compromiso_hr" ColumnName="compromiso_hr" />
+          <ScalarProperty Name="interes" ColumnName="interes" />
+          <ScalarProperty Name="escuela" ColumnName="escuela" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Empresa">
+      <EntityTypeMapping TypeName="PlatziModel.Empresa">
+        <MappingFragment StoreEntitySet="Empresa">
+          <ScalarProperty Name="nro_sus" ColumnName="nro_sus" />
+          <ScalarProperty Name="tamaño" ColumnName="tamaño" />
+          <ScalarProperty Name="telefono" ColumnName="telefono" />
+          <ScalarProperty Name="razon" ColumnName="razon" />
+          <ScalarProperty Name="correo" ColumnName="correo" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="idempresa" ColumnName="idempresa" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

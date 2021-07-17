@@ -1,0 +1,472 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <title></title>
+</head>
+<body>
+
+    <div id="app" class="container">
+        <a title="Principal" href="index.html"><img src="../images/LOGO_PLATZZI.png" alt="Platzi" width="100"/></a>
+
+        <div style="background-color:dimgray">
+            <h3 style="color:white; margin-left:10px">REGISTRO</h3>
+
+            <!--Modal RegistrarDatos-->
+            <div id="mdlRegistrarDatos" class="modal" tabindex="-1" role="dialog">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Registro de Datos</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close" @click="Cerrar">
+                                <!--boton X de la esquina-->
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <!--Contenido-->
+                            <form>
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <label for="inputCity">Nombres</label>
+                                        <input type="text" class="form-control" v-model="nom" placeholder="Nombres" required>
+                                    </div><br />
+                                    <div class="form-group col-md-6">
+                                        <label for="inputApellidos">Apellidos</label>
+                                        <input type="text" class="form-control" v-model="ape" placeholder="Apellidos" required>
+                                    </div>
+                                </div><br />
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <label for="inputEmail4">Email</label>
+                                        <input type="email" class="form-control" v-model="corr" placeholder="nombre@dominio.com" required>
+                                    </div>
+                                </div><br />
+                                <div class="form-group">
+                                    <label for="inputTelefono">Telefono</label>
+                                    <input type="text" class="form-control" v-model="tel" placeholder="999-999-999" required>
+                                </div><br />
+                                <div class="form-group">
+                                    <label for="inputTelefono">WhatsApp</label><br />
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="inlineRadioOptions" v-model="r_w" value="Si" checked>
+                                        <label class="form-check-label" for="inlineRadio1">Si</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="inlineRadioOptions" v-model="r_w" value="No">
+                                        <label class="form-check-label" for="inlineRadio2">No</label>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-primary" @click="RegistrarDatos">Continuar</button>
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal" @click="Cerrar">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--ModalRegistrarIntereses-->
+            <div id="mdlRegistrarIntereses" class="modal" tabindex="-1" role="dialog">
+                <div class="modal-dialog modal-xl" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Registro de Intereses</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <!--boton X de la esquina-->
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <!--Contenido-->
+                            <div class="card" style="width: 18rem;float:left;background-color:tomato;font-weight:600">
+                                <div class="card-body">
+                                    <h5 class="card-title">Programación</h5>
+                                    <p class="card-text">Curso intensivo de programación Web, Orientado a objetos y Administrador de servidores</p>
+                                    <div><input class="form-check-input" type="radio" value="Programación" v-model="nominteres" checked></div>
+                                </div>
+                            </div>
+                            <div class="card" style="width: 18rem;float:left;background-color:lightskyblue;font-weight:600">
+                                <div class="card-body">
+                                    <h5 class="card-title">Diseño Gráfico</h5>
+                                    <p class="card-text">Contiene las herramientas necesarias para el desempeño creativo bajo herramientas digitales</p>
+                                    <div><input class="form-check-input" type="radio" value="DiseñoGrafico" v-model="nominteres"></div>
+                                </div>
+                            </div>
+                            <div class="card" style="width: 18rem;float:left;background-color:beige;font-weight:600">
+                                <div class="card-body">
+                                    <h5 class="card-title">Inglés</h5>
+                                    <p class="card-text">Aprende con los mejores profesores en una plataforma moderna e intuitiva</p>
+                                    <div><input class="form-check-input" type="radio" value="Ingles" v-model="nominteres"></div>
+                                </div>
+                            </div>
+                            <div class="card" style="width: 18rem;float:left;background-color:darkseagreen;font-weight:600">
+                                <div class="card-body">
+                                    <h5 class="card-title">Liderazgo y Control</h5>
+                                    <p class="card-text">Herramientas necearias para un mejor control conductual, liderazgo y asertividad</p>
+                                    <div><input class="form-check-input" type="radio" value="Liderazgo&Control" v-model="nominteres"></div>
+                                </div>
+                            </div>
+                            <div class="card" style="width: 18rem;float:left;background-color:palegoldenrod;font-weight:600">
+                                <div class="card-body">
+                                    <h5 class="card-title">Marketing</h5>
+                                    <p class="card-text">Entérate de los mejores modelos de importación para tu negocio</p>
+                                    <div><input class="form-check-input" type="radio" value="Marketing" v-model="nominteres"></div>
+                                </div>
+                            </div>
+                            <div class="card" style="width: 18rem;float:left;background-color:gainsboro;font-weight:600">
+                                <div class="card-body">
+                                    <h5 class="card-title">Música</h5>
+                                    <p class="card-text">Historia, aprende a leer tablaturas, relacionar escalas y formar de acordes</p>
+                                    <div><input class="form-check-input" type="radio" value="Musica" v-model="nominteres"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-primary" @click="RegistrarIntereses">Continuar</button>
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal" @click="Cerrar">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--ModalRegistrarEscuelas-->
+            <div id="mdlRegistrarEscuelas" class="modal" tabindex="-1" role="dialog">
+                <div class="modal-dialog modal-xl" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Registro de Escuelas</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <!--boton X de la esquina-->
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <!--Contenido-->
+                            <div class="card" style="width: 10rem;float:left;background-color:khaki;font-weight:600">
+                                <div class="card-body">
+                                    <h5 class="card-title">Universidad Tecnológica de Bogotá</h5>
+                                    <p class="card-text">Ofrece las mejores herramientas de aprnedizaje.</p>
+                                    <div><input class="form-check-input" type="radio" value="UTB" v-model="nomescuela" checked></div>
+                                </div>
+                            </div>
+                            <div class="card" style="width: 18rem;float:left;background-color:cadetblue;font-weight:600">
+                                <div class="card-body">
+                                    <h5 class="card-title">Universidad Privada del Norte</h5>
+                                    <p class="card-text">Pone a tu disposiicón su plana de docentes altamente calificados.</p>
+                                    <div><input class="form-check-input" type="radio" value="UPN" v-model="nomescuela"></div>
+                                </div>
+                            </div>
+                            <div class="card" style="width: 18rem;float:left;background-color:thistle;font-weight:600">
+                                <div class="card-body">
+                                    <h5 class="card-title">Universidad Católica de Chile</h5>
+                                    <p class="card-text">Considerado como uno de los mejores de Latinoamericana.</p>
+                                    <div><input class="form-check-input" type="radio" value="UC.Chile" v-model="nomescuela"></div>
+                                </div>
+                            </div>
+                            <div class="card" style="width: 18rem;float:left;background-color:plum;font-weight:600">
+                                <div class="card-body">
+                                    <h5 class="card-title">Universidad Nacional de Belgrano</h5>
+                                    <p class="card-text">El ingreso por prioridades destaca el mérito de la trayectoria estudiantil.</p>
+                                    <div><input class="form-check-input" type="radio" value="UNB" v-model="nomescuela"></div>
+                                </div>
+                            </div>
+                            <div class="card" style="width: 18rem;float:left;background-color:ivory;font-weight:600">
+                                <div class="card-body">
+                                    <h5 class="card-title">Universidad de Lima</h5>
+                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                    <div><input class="form-check-input" type="radio" value="U.Lima" v-model="nomescuela"></div>
+                                </div>
+                            </div>
+                            <div class="card" style="width: 18rem;float:left;background-color:lightsalmon;font-weight:600">
+                                <div class="card-body">
+                                    <h5 class="card-title">Universidad Nacional Agraria La Molina</h5>
+                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                    <div><input class="form-check-input" type="radio" value="UNALM" v-model="nomescuela"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-primary" @click="RegistrarEscuelas">Continuar</button>
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal" @click="Cerrar">Cerrar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--Modal RegistrarCompromiso-->
+            <div id="mdlRegistrarCompromiso" class="modal" tabindex="-1" role="dialog">
+                <div class="modal-dialog modal-xl" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Registro de Compromiso</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <!--boton X de la esquina-->
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <!--Contenido-->
+                            <form>
+                                <center><h1>Compromiso</h1></center><br />
+                                <h5>Garantiza tu crecimiento profesional</h5>
+                                <div class="form-group">
+                                    <label for="inputTelefono">¿Cuantas horas al día te comprometes a estudiar?</label><br />
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="inlineRadioOptions" v-model="comp_hr" value="1" checked>
+                                        <label class="form-check-label" for="inlineRadio1">1 hora</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="inlineRadioOptions" v-model="comp_hr" value="2">
+                                        <label class="form-check-label" for="inlineRadio2">2 Horas</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="inlineRadioOptions" v-model="comp_hr" value="3">
+                                        <label class="form-check-label" for="inlineRadio2">3 Horas</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="inlineRadioOptions" v-model="comp_hr" value="4">
+                                        <label class="form-check-label" for="inlineRadio2">4 Horas</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="inlineRadioOptions" v-model="comp_hr" value="5">
+                                        <label class="form-check-label" for="inlineRadio2">5 Horas</label>
+                                    </div>
+                                </div>
+                            </form><br />
+
+                            <div>
+                                <h4>Como estudiante de Platzi me comprometo a:</h4>
+                                <ul>
+                                    <li>Estudiar al menos una clase al día</li>
+                                    <li>Practicar y aplicar todo lo aprnedido</li>
+                                    <li>Apoyarme en la comunidad para reforzar mi aprendizaje</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4>Al estudiar en Platzi me comprometo a:</h4>
+                                <h5>Seleccione todos los puntos para continuar</h5>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" required>
+                                <label class="form-check-label" for="flexCheckDefault">
+                                    Avanzar en mi aprnedizaje todos los días
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" required>
+                                <label class="form-check-label" for="flexCheckChecked">
+                                    Practicar y aplicar todo lo aprendido
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" required>
+                                <label class="form-check-label" for="flexCheckChecked">
+                                    Apoyarme en la comunidad para reforzar mi aprendizaje
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-primary" @click="RegistrarCompromiso">Continuar</button>
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal" @click="Cerrar">Cerrar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--Modal RegistrarAccesoContraseña-->
+            <div id="mdlAccesoContrasena" class="modal" tabindex="-1" role="dialog">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Registro de Credenciales</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <!--boton X de la esquina-->
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <!--Contenido-->
+                            <form>
+                                <div class="mb-3">
+                                    <label for="exampleInputEmail1" class="form-label">Usuario</label>
+                                    <input type="email" class="form-control" v-model="usu" aria-describedby="emailHelp" required>
+                                    <div id="emailHelp" class="form-text">example: usuario@dominio.com</div>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="exampleInputPassword1" class="form-label">Contraseña</label>
+                                    <input type="password" class="form-control" v-model="pass" required>
+                                    <div id="emailHelp" class="form-text">Recuerde utilizar mayusculas/numeros/simbolos</div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-primary" @click="Registrar">REGISTRAR</button>
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal" @click="Cerrar">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--Modal DetalleRegistro-->
+            <div id="mdlDetalleRegistro" class="modal" tabindex="-1" role="dialog">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Detalle de Registro</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <!--boton X de la esquina-->
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <!--Contenido-->
+                            <div class="card" style="width: 18rem;">
+                                <div class="card-header">
+                                    Featured
+                                </div>
+                                <ul class="list-group list-group-flush">
+                                    <li class="list-group-item">{{datos.nombres}}</li>
+                                    <li class="list-group-item">{{datos.apellidos}}</li>
+                                    <li class="list-group-item">{{datos.correo}}</li>
+                                    <li class="list-group-item">{{datos.usuario}}</li>
+                                    <li class="list-group-item">{{datos.contraseña}}</li>
+                                    <li class="list-group-item">{{datos.alutelefono}}</li>
+                                    <li class="list-group-item">{{datos.interes}}</li>
+                                    <li class="list-group-item">{{datos.escuela}}</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-primary" @click="Redireccionar">Cerrar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <ul class="nav nav-tabs" id="myTab" role="tablist">
+            <li class="nav-item">
+                <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Profile</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">Contact</a>
+            </li>
+        </ul>
+        <div class="tab-content" id="myTabContent">
+            <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab"></div>
+            <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab"></div>
+            <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab"></div>
+        </div>
+
+
+
+        <div class="card" style="width: 18rem; float:left">
+            <img src="../images/fotoplanes.jpg" class="card-img-top" alt="Planes" style="width:300px;height:220px">
+            <div class="card-body">
+                <h5 class="card-title">Planes</h5>
+                <p class="card-text">
+                    Adquiere un plan a tu medida según el tiempo necesario para tu desarrollo profesional
+                </p>
+                <a href="#" class="btn btn-primary">Ver más</a>
+            </div>
+        </div>
+        <div class="card" style="width: 18rem; float:left"> 
+            <img src="../images/fotocursos.jpg" class="card-img-top" alt="Cursos" style="width:300px;height:220px">
+            <div class="card-body">
+                <h5 class="card-title">Cursos</h5>
+                <p class="card-text">Entérate de la lista de cursos actualizada según la materia disponible</p>
+                <a href="#" class="btn btn-primary">Ver más</a>
+            </div>
+        </div>
+        <div class="card" style="width: 18rem; float:left">
+            <img src="../images/fotolaboral.jpg" class="card-img-top" alt="Bolsa Laboral" style="width:287px;height:220px">
+            <div class="card-body">
+                <h5 class="card-title">Bolsa de Trabajo</h5>
+                <p class="card-text">Las oportunidades estan a un solo click. Entidades públicas y privadas te esperan.
+                No desaproveches.</p>
+                <a href="#" class="btn btn-primary">Ver más</a>
+            </div>
+        </div>
+        <div class="card" style="width: 18rem; float:left">
+                <div class="card-body">
+                    <center><button @click="fecthRegistro" style="font-size:larger; animation-delay:initial; font-weight:500" class="btn-success">Registrar</button></center>
+                </div>
+        </div>
+
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue-resource/0.6.1/vue-resource.min.js" integrity="sha512-NuUIe6TWdEivPTcxnihx2e6r2xQFEFPrJfpdZWoBwZF6G51Rphcf5r/1ZU/ytj4lyHwLd/YGMix4a5LqAN15XA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <script>
+    new Vue({
+        el: "#app",
+        data: {
+            nom: "",
+            ape: "",
+            corr: "",
+            usu: "",
+            pass: "",
+            tel: "",
+            r_w: "",
+            comp_hr: 0,
+            nominteres: "",
+            nomescuela: "",
+            datos: [],
+            id: "",            
+        },
+        methods: {
+            fecthRegistro: function () {
+                $("#mdlRegistrarDatos").modal("show");
+            },
+            RegistrarDatos: function () {
+                $("#mdlRegistrarDatos").modal("hide");
+                $("#mdlRegistrarIntereses").modal("show");
+            },
+            RegistrarIntereses: function () {
+                $("#mdlRegistrarIntereses").modal("hide");
+                $("#mdlRegistrarEscuelas").modal("show");
+            },
+            RegistrarEscuelas: function ( ) {            
+                $("#mdlRegistrarEscuelas").modal("hide");
+                $("#mdlRegistrarCompromiso").modal("show");                               
+            },
+            RegistrarCompromiso: function () {                
+                
+                $("#mdlRegistrarCompromiso").modal("hide");
+                $("#mdlAccesoContrasena").modal("show");                                
+            },
+            Registrar: function () {
+                var url = "https://localhost:44343/api/AlumnoController/RegistrarDatos?nom=" + this.nom + "&ape=" + this.ape + "&usu=" + this.usu + "&pass=" + this.pass + "&corr=" + this.corr + "&r_w=" + this.r_w + "&tel=" + this.tel + "&comp_hr=" + this.comp_hr + "&inte=" + this.nominteres + "&esc=" + this.nomescuela;
+                this.$http.get(url).then(function (response) {
+                    this.datos = response.data;
+                });
+                $("#mdlAccesoContrasena").modal("hide");
+                $("#mdlDetalleRegistro").modal("show");
+            },
+            Redireccionar: function () {                
+                //$("#mdlDetalleRegistro").modal("hide");
+                window.location.href = "index.html"
+            },
+            Cerrar: function () {
+                window.close();
+            }
+
+        }
+
+    });
+
+    </script>
+</body>
+</html>

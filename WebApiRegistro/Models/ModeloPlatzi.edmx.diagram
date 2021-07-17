@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="b0cb16be08a34f72acda00b8ae74bf6c" Name="Diagram1">
+        <EntityTypeShape EntityType="PlatziModel.Administrador" Width="1.5" PointX="3" PointY="10" IsExpanded="true" />
+        <EntityTypeShape EntityType="PlatziModel.Alumno" Width="1.5" PointX="3" PointY="13.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="PlatziModel.Alumno_Empleo" Width="1.5" PointX="8.25" PointY="15.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="PlatziModel.Categoria_Empleo" Width="1.5" PointX="3.75" PointY="4.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="PlatziModel.Categoria_Escuela" Width="1.5" PointX="0.75" PointY="22.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PlatziModel.Ciudad" Width="1.5" PointX="3.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PlatziModel.Curso" Width="1.5" PointX="5.25" PointY="26.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="PlatziModel.Empleo" Width="1.5" PointX="6" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PlatziModel.Escuela" Width="1.5" PointX="3" PointY="22.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="PlatziModel.Interes" Width="1.5" PointX="5.25" PointY="13.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="PlatziModel.Itinerario_Aprendizaje" Width="1.5" PointX="5.25" PointY="16" IsExpanded="true" />
+        <EntityTypeShape EntityType="PlatziModel.Itinerario_Curso" Width="1.5" PointX="7.5" PointY="21.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="PlatziModel.Notificaciones" Width="1.5" PointX="5.25" PointY="19.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="PlatziModel.Pago" Width="1.5" PointX="10.5" PointY="22.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="PlatziModel.Pago_Tarjeta" Width="1.5" PointX="12.75" PointY="22.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="PlatziModel.Pais" Width="1.5" PointX="0.75" PointY="15.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="PlatziModel.Perfil" Width="1.5" PointX="0.75" PointY="12.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="PlatziModel.Planes" Width="1.5" PointX="8.25" PointY="30" IsExpanded="true" />
+        <EntityTypeShape EntityType="PlatziModel.Profesor" Width="1.5" PointX="3" PointY="25.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PlatziModel.Ruta_Adm" Width="1.5" PointX="7.5" PointY="26.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="PlatziModel.Suscripcion" Width="1.5" PointX="5.25" PointY="22.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="PlatziModel.Tipo_Pago" Width="1.5" PointX="10.5" PointY="20.125" IsExpanded="true" />
+        <AssociationConnector Association="PlatziModel.FK__Administr__perfi__267ABA7A" ManuallyRouted="false" />
+        <AssociationConnector Association="PlatziModel.FK__Alumno__alu_perf__2C3393D0" ManuallyRouted="false" />
+        <AssociationConnector Association="PlatziModel.FK__Alumno__idpais__2B3F6F97" ManuallyRouted="false" />
+        <AssociationConnector Association="PlatziModel.FK__Interes__idalumn__2F10007B" ManuallyRouted="false" />
+        <AssociationConnector Association="PlatziModel.FK__Notificac__idalu__403A8C7D" ManuallyRouted="false" />
+        <AssociationConnector Association="PlatziModel.Fk_idalumno" ManuallyRouted="false" />
+        <AssociationConnector Association="PlatziModel.Fk_iditi_alumno" ManuallyRouted="false" />
+        <AssociationConnector Association="PlatziModel.Fk_idsus_alumno" ManuallyRouted="false" />
+        <AssociationConnector Association="PlatziModel.Fk_idempleo" ManuallyRouted="false" />
+        <AssociationConnector Association="PlatziModel.FK__Empleo__idcat__47DBAE45" ManuallyRouted="false" />
+        <AssociationConnector Association="PlatziModel.FK_esc_idcat" ManuallyRouted="false" />
+        <AssociationConnector Association="PlatziModel.FK__Empleo__idempl_c__46E78A0C" ManuallyRouted="false" />
+        <AssociationConnector Association="PlatziModel.FK_curso_idescuela" ManuallyRouted="false" />
+        <AssociationConnector Association="PlatziModel.FK_curso_idprofesor" ManuallyRouted="false" />
+        <AssociationConnector Association="PlatziModel.Fk_id_iticurso_idcurso" ManuallyRouted="false" />
+        <AssociationConnector Association="PlatziModel.FK_ruta_adm_curso" ManuallyRouted="false" />
+        <AssociationConnector Association="PlatziModel.Fk_id_iticurso_iti" ManuallyRouted="false" />
+        <AssociationConnector Association="PlatziModel.Fk_idpago" ManuallyRouted="false" />
+        <AssociationConnector Association="PlatziModel.Fk_idpplan" ManuallyRouted="false" />
+        <AssociationConnector Association="PlatziModel.Fk_idsuscripcion" ManuallyRouted="false" />
+        <AssociationConnector Association="PlatziModel.Fk_idtipo_pago" ManuallyRouted="false" />
+        <AssociationConnector Association="PlatziModel.FK__Profesor__pro_pe__4AB81AF0" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

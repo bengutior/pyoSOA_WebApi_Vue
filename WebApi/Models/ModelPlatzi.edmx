@@ -1,0 +1,135 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="PlatziModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Alumno">
+          <Key>
+            <PropertyRef Name="idalumno" />
+          </Key>
+          <Property Name="idalumno" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="usu_nombre" Type="varchar" MaxLength="50" />
+          <Property Name="alu_correo" Type="varchar" MaxLength="50" />
+          <Property Name="alu_contrasena" Type="varchar" MaxLength="50" />
+          <Property Name="alu_nombres" Type="varchar" MaxLength="50" />
+          <Property Name="aluapellidos" Type="varchar" MaxLength="50" />
+          <Property Name="alutelefono" Type="int" />
+          <Property Name="resp_w" Type="varchar" MaxLength="20" />
+          <Property Name="compromiso_hr" Type="int" />
+          <Property Name="interes" Type="varchar" MaxLength="50" />
+          <Property Name="escuela" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Empresa">
+          <Key>
+            <PropertyRef Name="idempresa" />
+          </Key>
+          <Property Name="idempresa" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="nombre" Type="varchar" MaxLength="50" />
+          <Property Name="correo" Type="varchar" MaxLength="50" />
+          <Property Name="razon" Type="varchar" MaxLength="50" />
+          <Property Name="telefono" Type="varchar" MaxLength="50" />
+          <Property Name="tamaño" Type="varchar" MaxLength="50" />
+          <Property Name="nro_sus" Type="int" />
+        </EntityType>
+        <EntityContainer Name="PlatziModelStoreContainer">
+          <EntitySet Name="Alumno" EntityType="Self.Alumno" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Empresa" EntityType="Self.Empresa" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="PlatziModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Alumno">
+          <Key>
+            <PropertyRef Name="idalumno" />
+          </Key>
+          <Property Name="idalumno" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="usu_nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="alu_correo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="alu_contrasena" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="alu_nombres" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="aluapellidos" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="alutelefono" Type="Int32" />
+          <Property Name="resp_w" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="compromiso_hr" Type="Int32" />
+          <Property Name="interes" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="escuela" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityContainer Name="PlatziEntities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Alumno" EntityType="Self.Alumno" />
+          <EntitySet Name="Empresa" EntityType="PlatziModel.Empresa" />
+        </EntityContainer>
+        <EntityType Name="Empresa">
+          <Key>
+            <PropertyRef Name="idempresa" />
+          </Key>
+          <Property Name="idempresa" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="correo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="razon" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="telefono" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="tamaño" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="nro_sus" Type="Int32" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="PlatziModelStoreContainer" CdmEntityContainer="PlatziEntities1">
+          <EntitySetMapping Name="Alumno">
+            <EntityTypeMapping TypeName="PlatziModel.Alumno">
+              <MappingFragment StoreEntitySet="Alumno">
+                <ScalarProperty Name="idalumno" ColumnName="idalumno" />
+                <ScalarProperty Name="usu_nombre" ColumnName="usu_nombre" />
+                <ScalarProperty Name="alu_correo" ColumnName="alu_correo" />
+                <ScalarProperty Name="alu_contrasena" ColumnName="alu_contrasena" />
+                <ScalarProperty Name="alu_nombres" ColumnName="alu_nombres" />
+                <ScalarProperty Name="aluapellidos" ColumnName="aluapellidos" />
+                <ScalarProperty Name="alutelefono" ColumnName="alutelefono" />
+                <ScalarProperty Name="resp_w" ColumnName="resp_w" />
+                <ScalarProperty Name="compromiso_hr" ColumnName="compromiso_hr" />
+                <ScalarProperty Name="interes" ColumnName="interes" />
+                <ScalarProperty Name="escuela" ColumnName="escuela" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Empresa">
+            <EntityTypeMapping TypeName="PlatziModel.Empresa">
+              <MappingFragment StoreEntitySet="Empresa">
+                <ScalarProperty Name="nro_sus" ColumnName="nro_sus" />
+                <ScalarProperty Name="tamaño" ColumnName="tamaño" />
+                <ScalarProperty Name="telefono" ColumnName="telefono" />
+                <ScalarProperty Name="razon" ColumnName="razon" />
+                <ScalarProperty Name="correo" ColumnName="correo" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="idempresa" ColumnName="idempresa" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

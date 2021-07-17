@@ -1,0 +1,611 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="PlatziModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Administrador">
+    <Key>
+      <PropertyRef Name="idadministrador" />
+    </Key>
+    <Property Name="idadministrador" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="usunombre" Type="varchar" MaxLength="50" />
+    <Property Name="perfil" Type="int" />
+    <Property Name="correo" Type="varchar" MaxLength="50" />
+    <Property Name="contrasena" Type="varchar" MaxLength="50" />
+    <Property Name="estado" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Alumno">
+    <Key>
+      <PropertyRef Name="idalumno" />
+    </Key>
+    <Property Name="idalumno" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="alu_perfil" Type="int" />
+    <Property Name="usu_nombre" Type="varchar" MaxLength="50" />
+    <Property Name="alu_correo" Type="varchar" MaxLength="50" />
+    <Property Name="alu_contrasena" Type="varchar" MaxLength="50" />
+    <Property Name="alu_nombres" Type="varchar" MaxLength="50" />
+    <Property Name="aluapellidos" Type="varchar" MaxLength="50" />
+    <Property Name="alugenero" Type="varchar" MaxLength="50" />
+    <Property Name="alutelefono" Type="int" />
+    <Property Name="idpais" Type="int" />
+    <Property Name="alucumpleanos" Type="date" />
+    <Property Name="alunivel" Type="varchar" MaxLength="50" />
+    <Property Name="aluexperiencia" Type="varchar" MaxLength="50" />
+    <Property Name="alu_tiempo_exp" Type="int" />
+    <Property Name="alu_medio_labor" Type="varchar" MaxLength="50" />
+    <Property Name="resp_w" Type="varchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="Alumno_Empleo">
+    <Key>
+      <PropertyRef Name="id_alu_empl" />
+    </Key>
+    <Property Name="id_alu_empl" Type="int" Nullable="false" />
+    <Property Name="idempleo" Type="int" />
+    <Property Name="idalumno" Type="int" />
+    <Property Name="fecha_postulacion" Type="date" />
+  </EntityType>
+  <EntityType Name="Categoria_Empleo">
+    <Key>
+      <PropertyRef Name="idcat_emp" />
+    </Key>
+    <Property Name="idcat_emp" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="cat_empleo_nombre" Type="varchar" MaxLength="1" />
+  </EntityType>
+  <EntityType Name="Categoria_Escuela">
+    <Key>
+      <PropertyRef Name="idcat_escuela" />
+    </Key>
+    <Property Name="idcat_escuela" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="cat_escuela_nombre" Type="int" />
+  </EntityType>
+  <EntityType Name="Ciudad">
+    <Key>
+      <PropertyRef Name="idciudad" />
+    </Key>
+    <Property Name="idciudad" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ciudad_nombre" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Curso">
+    <Key>
+      <PropertyRef Name="idcurso" />
+    </Key>
+    <Property Name="idcurso" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="curso_idprofesor" Type="int" />
+    <Property Name="curso_idescuela" Type="int" />
+    <Property Name="curso_nivel" Type="varchar" MaxLength="50" />
+    <Property Name="curso_nombre" Type="varchar" MaxLength="50" />
+    <Property Name="curso_logo" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Empleo">
+    <Key>
+      <PropertyRef Name="idempleo" />
+    </Key>
+    <Property Name="idempleo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="idempl_ciudad" Type="int" />
+    <Property Name="idcat" Type="int" />
+    <Property Name="empl_modalidad" Type="varchar" MaxLength="50" />
+    <Property Name="empl_fec_publ" Type="date" />
+    <Property Name="empl_detalle" Type="varchar" MaxLength="50" />
+    <Property Name="empl_nom_emp" Type="varchar" MaxLength="50" />
+    <Property Name="empl_titulo" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Escuela">
+    <Key>
+      <PropertyRef Name="idescuela" />
+    </Key>
+    <Property Name="idescuela" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="esc_nombre" Type="varchar" MaxLength="50" />
+    <Property Name="esc_logo" Type="varchar" MaxLength="50" />
+    <Property Name="esc_idcat" Type="int" />
+  </EntityType>
+  <EntityType Name="Interes">
+    <Key>
+      <PropertyRef Name="idinteres" />
+    </Key>
+    <Property Name="idinteres" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="idalumno" Type="int" />
+    <Property Name="interes_nombre" Type="varchar" MaxLength="50" />
+    <Property Name="interes_descripcion" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Itinerario_Aprendizaje">
+    <Key>
+      <PropertyRef Name="iditinerario" />
+    </Key>
+    <Property Name="iditinerario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="iditi_alumno" Type="int" />
+    <Property Name="iditi_inscrip" Type="int" />
+    <Property Name="iti_nombre" Type="varchar" MaxLength="50" />
+    <Property Name="iti_fech_creacion" Type="date" />
+    <Property Name="estado" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Itinerario_Curso">
+    <Key>
+      <PropertyRef Name="id_iti_curso" />
+    </Key>
+    <Property Name="id_iti_curso" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_iticurso_idcurso" Type="int" />
+    <Property Name="id_iticurso_iti" Type="int" />
+    <Property Name="iti_nombre" Type="varchar" MaxLength="50" />
+    <Property Name="iti_fech_inicio" Type="date" />
+  </EntityType>
+  <EntityType Name="Notificaciones">
+    <Key>
+      <PropertyRef Name="idnotificacion" />
+    </Key>
+    <Property Name="correo_destino" Type="varchar" MaxLength="50" />
+    <Property Name="nombre_destino" Type="varchar" MaxLength="50" />
+    <Property Name="informacion_destino" Type="varchar" MaxLength="1" />
+    <Property Name="ipnotif" Type="int" />
+    <Property Name="fecha" Type="date" />
+    <Property Name="idalumno" Type="int" />
+    <Property Name="idnotificacion" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Pago">
+    <Key>
+      <PropertyRef Name="idpago" />
+    </Key>
+    <Property Name="idpago" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="idsuscripcion" Type="int" />
+    <Property Name="idplan" Type="int" />
+    <Property Name="tipo_pago" Type="int" />
+    <Property Name="estado" Type="int" />
+  </EntityType>
+  <EntityType Name="Pago_Tarjeta">
+    <Key>
+      <PropertyRef Name="idpago_tarjeta" />
+    </Key>
+    <Property Name="idpago_tarjeta" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="idpago" Type="int" />
+    <Property Name="idtipo_pago" Type="int" />
+    <Property Name="nombre_titular" Type="varchar" MaxLength="50" />
+    <Property Name="numero" Type="int" />
+    <Property Name="mm" Type="int" />
+    <Property Name="aa" Type="int" />
+    <Property Name="cvc" Type="int" />
+    <Property Name="estado" Type="int" />
+  </EntityType>
+  <EntityType Name="Pais">
+    <Key>
+      <PropertyRef Name="idpais" />
+    </Key>
+    <Property Name="idpais" Type="int" Nullable="false" />
+    <Property Name="paisnombre" Type="varchar" MaxLength="50" />
+    <Property Name="pais_cod_postal" Type="int" />
+  </EntityType>
+  <EntityType Name="Perfil">
+    <Key>
+      <PropertyRef Name="idperfil" />
+    </Key>
+    <Property Name="idperfil" Type="int" Nullable="false" />
+    <Property Name="nombre" Type="varchar" MaxLength="50" />
+    <Property Name="estado" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Planes">
+    <Key>
+      <PropertyRef Name="idplan" />
+    </Key>
+    <Property Name="idplan" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="plan_nombre" Type="varchar" MaxLength="50" />
+    <Property Name="plan_descripcion" Type="varchar" MaxLength="50" />
+    <Property Name="plan_precio" Type="money" />
+  </EntityType>
+  <EntityType Name="Profesor">
+    <Key>
+      <PropertyRef Name="idprofesor" />
+    </Key>
+    <Property Name="idprofesor" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="prof_usunombre" Type="varchar" MaxLength="50" />
+    <Property Name="profcorreo" Type="varchar" MaxLength="50" />
+    <Property Name="pro_perfil" Type="int" />
+    <Property Name="profcontrasena" Type="varchar" MaxLength="50" />
+    <Property Name="prof_nombre" Type="varchar" MaxLength="50" />
+    <Property Name="prof_apellidos" Type="varchar" MaxLength="50" />
+    <Property Name="prof_documento" Type="varchar" MaxLength="50" />
+    <Property Name="prof_especialidad" Type="varchar" MaxLength="50" />
+    <Property Name="prof_telef" Type="varchar" MaxLength="12" />
+    <Property Name="prof_foto" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Ruta_Adm">
+    <Key>
+      <PropertyRef Name="idruta_adm" />
+    </Key>
+    <Property Name="idruta_adm" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ruta_adm_nombre" Type="varchar" MaxLength="50" />
+    <Property Name="ruta_adm_interes" Type="varchar" MaxLength="50" />
+    <Property Name="ruta_adm_tema" Type="varchar" MaxLength="50" />
+    <Property Name="ruta_adm_nivel" Type="varchar" MaxLength="50" />
+    <Property Name="ruta_adm_descripcion" Type="varchar" MaxLength="50" />
+    <Property Name="id_ruta_adm_curso" Type="int" />
+  </EntityType>
+  <EntityType Name="Suscripcion">
+    <Key>
+      <PropertyRef Name="idsuscripcion" />
+    </Key>
+    <Property Name="idsuscripcion" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="idalumno" Type="int" />
+    <Property Name="sus_tipo" Type="int" />
+    <Property Name="sus_estado" Type="int" />
+    <Property Name="sus_fech_inicio" Type="date" />
+    <Property Name="sus_fech_venc" Type="date" />
+  </EntityType>
+  <EntityType Name="Tipo_Pago">
+    <Key>
+      <PropertyRef Name="idtipo" />
+    </Key>
+    <Property Name="idtipo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="tipo" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <Association Name="FK__Administr__perfi__267ABA7A">
+    <End Role="Perfil" Type="Self.Perfil" Multiplicity="0..1" />
+    <End Role="Administrador" Type="Self.Administrador" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Perfil">
+        <PropertyRef Name="idperfil" />
+      </Principal>
+      <Dependent Role="Administrador">
+        <PropertyRef Name="perfil" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Alumno__alu_perf__2C3393D0">
+    <End Role="Perfil" Type="Self.Perfil" Multiplicity="0..1" />
+    <End Role="Alumno" Type="Self.Alumno" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Perfil">
+        <PropertyRef Name="idperfil" />
+      </Principal>
+      <Dependent Role="Alumno">
+        <PropertyRef Name="alu_perfil" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Alumno__idpais__2B3F6F97">
+    <End Role="Pais" Type="Self.Pais" Multiplicity="0..1" />
+    <End Role="Alumno" Type="Self.Alumno" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pais">
+        <PropertyRef Name="idpais" />
+      </Principal>
+      <Dependent Role="Alumno">
+        <PropertyRef Name="idpais" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Empleo__idcat__47DBAE45">
+    <End Role="Categoria_Empleo" Type="Self.Categoria_Empleo" Multiplicity="0..1" />
+    <End Role="Empleo" Type="Self.Empleo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Categoria_Empleo">
+        <PropertyRef Name="idcat_emp" />
+      </Principal>
+      <Dependent Role="Empleo">
+        <PropertyRef Name="idcat" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Empleo__idempl_c__46E78A0C">
+    <End Role="Ciudad" Type="Self.Ciudad" Multiplicity="0..1" />
+    <End Role="Empleo" Type="Self.Empleo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Ciudad">
+        <PropertyRef Name="idciudad" />
+      </Principal>
+      <Dependent Role="Empleo">
+        <PropertyRef Name="idempl_ciudad" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Interes__idalumn__2F10007B">
+    <End Role="Alumno" Type="Self.Alumno" Multiplicity="0..1" />
+    <End Role="Interes" Type="Self.Interes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Alumno">
+        <PropertyRef Name="idalumno" />
+      </Principal>
+      <Dependent Role="Interes">
+        <PropertyRef Name="idalumno" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Notificac__idalu__403A8C7D">
+    <End Role="Alumno" Type="Self.Alumno" Multiplicity="0..1" />
+    <End Role="Notificaciones" Type="Self.Notificaciones" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Alumno">
+        <PropertyRef Name="idalumno" />
+      </Principal>
+      <Dependent Role="Notificaciones">
+        <PropertyRef Name="idalumno" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Profesor__pro_pe__4AB81AF0">
+    <End Role="Perfil" Type="Self.Perfil" Multiplicity="0..1" />
+    <End Role="Profesor" Type="Self.Profesor" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Perfil">
+        <PropertyRef Name="idperfil" />
+      </Principal>
+      <Dependent Role="Profesor">
+        <PropertyRef Name="pro_perfil" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_curso_idescuela">
+    <End Role="Escuela" Type="Self.Escuela" Multiplicity="0..1" />
+    <End Role="Curso" Type="Self.Curso" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Escuela">
+        <PropertyRef Name="idescuela" />
+      </Principal>
+      <Dependent Role="Curso">
+        <PropertyRef Name="curso_idescuela" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_curso_idprofesor">
+    <End Role="Profesor" Type="Self.Profesor" Multiplicity="0..1" />
+    <End Role="Curso" Type="Self.Curso" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Profesor">
+        <PropertyRef Name="idprofesor" />
+      </Principal>
+      <Dependent Role="Curso">
+        <PropertyRef Name="curso_idprofesor" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_esc_idcat">
+    <End Role="Categoria_Escuela" Type="Self.Categoria_Escuela" Multiplicity="0..1" />
+    <End Role="Escuela" Type="Self.Escuela" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Categoria_Escuela">
+        <PropertyRef Name="idcat_escuela" />
+      </Principal>
+      <Dependent Role="Escuela">
+        <PropertyRef Name="esc_idcat" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Fk_id_iticurso_idcurso">
+    <End Role="Curso" Type="Self.Curso" Multiplicity="0..1" />
+    <End Role="Itinerario_Curso" Type="Self.Itinerario_Curso" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Curso">
+        <PropertyRef Name="idcurso" />
+      </Principal>
+      <Dependent Role="Itinerario_Curso">
+        <PropertyRef Name="id_iticurso_idcurso" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Fk_id_iticurso_iti">
+    <End Role="Itinerario_Aprendizaje" Type="Self.Itinerario_Aprendizaje" Multiplicity="0..1" />
+    <End Role="Itinerario_Curso" Type="Self.Itinerario_Curso" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Itinerario_Aprendizaje">
+        <PropertyRef Name="iditinerario" />
+      </Principal>
+      <Dependent Role="Itinerario_Curso">
+        <PropertyRef Name="id_iticurso_iti" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Fk_idalumno">
+    <End Role="Alumno" Type="Self.Alumno" Multiplicity="0..1" />
+    <End Role="Alumno_Empleo" Type="Self.Alumno_Empleo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Alumno">
+        <PropertyRef Name="idalumno" />
+      </Principal>
+      <Dependent Role="Alumno_Empleo">
+        <PropertyRef Name="idalumno" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Fk_idempleo">
+    <End Role="Empleo" Type="Self.Empleo" Multiplicity="0..1" />
+    <End Role="Alumno_Empleo" Type="Self.Alumno_Empleo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Empleo">
+        <PropertyRef Name="idempleo" />
+      </Principal>
+      <Dependent Role="Alumno_Empleo">
+        <PropertyRef Name="idempleo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Fk_iditi_alumno">
+    <End Role="Alumno" Type="Self.Alumno" Multiplicity="0..1" />
+    <End Role="Itinerario_Aprendizaje" Type="Self.Itinerario_Aprendizaje" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Alumno">
+        <PropertyRef Name="idalumno" />
+      </Principal>
+      <Dependent Role="Itinerario_Aprendizaje">
+        <PropertyRef Name="iditi_alumno" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Fk_idpago">
+    <End Role="Pago" Type="Self.Pago" Multiplicity="0..1" />
+    <End Role="Pago_Tarjeta" Type="Self.Pago_Tarjeta" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pago">
+        <PropertyRef Name="idpago" />
+      </Principal>
+      <Dependent Role="Pago_Tarjeta">
+        <PropertyRef Name="idpago" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Fk_idpplan">
+    <End Role="Planes" Type="Self.Planes" Multiplicity="0..1" />
+    <End Role="Pago" Type="Self.Pago" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Planes">
+        <PropertyRef Name="idplan" />
+      </Principal>
+      <Dependent Role="Pago">
+        <PropertyRef Name="idplan" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Fk_idsus_alumno">
+    <End Role="Alumno" Type="Self.Alumno" Multiplicity="0..1" />
+    <End Role="Suscripcion" Type="Self.Suscripcion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Alumno">
+        <PropertyRef Name="idalumno" />
+      </Principal>
+      <Dependent Role="Suscripcion">
+        <PropertyRef Name="idalumno" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Fk_idsuscripcion">
+    <End Role="Suscripcion" Type="Self.Suscripcion" Multiplicity="0..1" />
+    <End Role="Pago" Type="Self.Pago" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Suscripcion">
+        <PropertyRef Name="idsuscripcion" />
+      </Principal>
+      <Dependent Role="Pago">
+        <PropertyRef Name="idsuscripcion" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Fk_idtipo_pago">
+    <End Role="Tipo_Pago" Type="Self.Tipo_Pago" Multiplicity="0..1" />
+    <End Role="Pago_Tarjeta" Type="Self.Pago_Tarjeta" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tipo_Pago">
+        <PropertyRef Name="idtipo" />
+      </Principal>
+      <Dependent Role="Pago_Tarjeta">
+        <PropertyRef Name="idtipo_pago" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ruta_adm_curso">
+    <End Role="Curso" Type="Self.Curso" Multiplicity="0..1" />
+    <End Role="Ruta_Adm" Type="Self.Ruta_Adm" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Curso">
+        <PropertyRef Name="idcurso" />
+      </Principal>
+      <Dependent Role="Ruta_Adm">
+        <PropertyRef Name="id_ruta_adm_curso" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="PlatziModelStoreContainer">
+    <EntitySet Name="Administrador" EntityType="Self.Administrador" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Alumno" EntityType="Self.Alumno" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Alumno_Empleo" EntityType="Self.Alumno_Empleo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Categoria_Empleo" EntityType="Self.Categoria_Empleo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Categoria_Escuela" EntityType="Self.Categoria_Escuela" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Ciudad" EntityType="Self.Ciudad" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Curso" EntityType="Self.Curso" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Empleo" EntityType="Self.Empleo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Escuela" EntityType="Self.Escuela" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Interes" EntityType="Self.Interes" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Itinerario_Aprendizaje" EntityType="Self.Itinerario_Aprendizaje" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Itinerario_Curso" EntityType="Self.Itinerario_Curso" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Notificaciones" EntityType="Self.Notificaciones" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Pago" EntityType="Self.Pago" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Pago_Tarjeta" EntityType="Self.Pago_Tarjeta" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Pais" EntityType="Self.Pais" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Perfil" EntityType="Self.Perfil" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Planes" EntityType="Self.Planes" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Profesor" EntityType="Self.Profesor" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Ruta_Adm" EntityType="Self.Ruta_Adm" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Suscripcion" EntityType="Self.Suscripcion" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tipo_Pago" EntityType="Self.Tipo_Pago" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__Administr__perfi__267ABA7A" Association="Self.FK__Administr__perfi__267ABA7A">
+      <End Role="Perfil" EntitySet="Perfil" />
+      <End Role="Administrador" EntitySet="Administrador" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Alumno__alu_perf__2C3393D0" Association="Self.FK__Alumno__alu_perf__2C3393D0">
+      <End Role="Perfil" EntitySet="Perfil" />
+      <End Role="Alumno" EntitySet="Alumno" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Alumno__idpais__2B3F6F97" Association="Self.FK__Alumno__idpais__2B3F6F97">
+      <End Role="Pais" EntitySet="Pais" />
+      <End Role="Alumno" EntitySet="Alumno" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Empleo__idcat__47DBAE45" Association="Self.FK__Empleo__idcat__47DBAE45">
+      <End Role="Categoria_Empleo" EntitySet="Categoria_Empleo" />
+      <End Role="Empleo" EntitySet="Empleo" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Empleo__idempl_c__46E78A0C" Association="Self.FK__Empleo__idempl_c__46E78A0C">
+      <End Role="Ciudad" EntitySet="Ciudad" />
+      <End Role="Empleo" EntitySet="Empleo" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Interes__idalumn__2F10007B" Association="Self.FK__Interes__idalumn__2F10007B">
+      <End Role="Alumno" EntitySet="Alumno" />
+      <End Role="Interes" EntitySet="Interes" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Notificac__idalu__403A8C7D" Association="Self.FK__Notificac__idalu__403A8C7D">
+      <End Role="Alumno" EntitySet="Alumno" />
+      <End Role="Notificaciones" EntitySet="Notificaciones" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Profesor__pro_pe__4AB81AF0" Association="Self.FK__Profesor__pro_pe__4AB81AF0">
+      <End Role="Perfil" EntitySet="Perfil" />
+      <End Role="Profesor" EntitySet="Profesor" />
+    </AssociationSet>
+    <AssociationSet Name="FK_curso_idescuela" Association="Self.FK_curso_idescuela">
+      <End Role="Escuela" EntitySet="Escuela" />
+      <End Role="Curso" EntitySet="Curso" />
+    </AssociationSet>
+    <AssociationSet Name="FK_curso_idprofesor" Association="Self.FK_curso_idprofesor">
+      <End Role="Profesor" EntitySet="Profesor" />
+      <End Role="Curso" EntitySet="Curso" />
+    </AssociationSet>
+    <AssociationSet Name="FK_esc_idcat" Association="Self.FK_esc_idcat">
+      <End Role="Categoria_Escuela" EntitySet="Categoria_Escuela" />
+      <End Role="Escuela" EntitySet="Escuela" />
+    </AssociationSet>
+    <AssociationSet Name="Fk_id_iticurso_idcurso" Association="Self.Fk_id_iticurso_idcurso">
+      <End Role="Curso" EntitySet="Curso" />
+      <End Role="Itinerario_Curso" EntitySet="Itinerario_Curso" />
+    </AssociationSet>
+    <AssociationSet Name="Fk_id_iticurso_iti" Association="Self.Fk_id_iticurso_iti">
+      <End Role="Itinerario_Aprendizaje" EntitySet="Itinerario_Aprendizaje" />
+      <End Role="Itinerario_Curso" EntitySet="Itinerario_Curso" />
+    </AssociationSet>
+    <AssociationSet Name="Fk_idalumno" Association="Self.Fk_idalumno">
+      <End Role="Alumno" EntitySet="Alumno" />
+      <End Role="Alumno_Empleo" EntitySet="Alumno_Empleo" />
+    </AssociationSet>
+    <AssociationSet Name="Fk_idempleo" Association="Self.Fk_idempleo">
+      <End Role="Empleo" EntitySet="Empleo" />
+      <End Role="Alumno_Empleo" EntitySet="Alumno_Empleo" />
+    </AssociationSet>
+    <AssociationSet Name="Fk_iditi_alumno" Association="Self.Fk_iditi_alumno">
+      <End Role="Alumno" EntitySet="Alumno" />
+      <End Role="Itinerario_Aprendizaje" EntitySet="Itinerario_Aprendizaje" />
+    </AssociationSet>
+    <AssociationSet Name="Fk_idpago" Association="Self.Fk_idpago">
+      <End Role="Pago" EntitySet="Pago" />
+      <End Role="Pago_Tarjeta" EntitySet="Pago_Tarjeta" />
+    </AssociationSet>
+    <AssociationSet Name="Fk_idpplan" Association="Self.Fk_idpplan">
+      <End Role="Planes" EntitySet="Planes" />
+      <End Role="Pago" EntitySet="Pago" />
+    </AssociationSet>
+    <AssociationSet Name="Fk_idsus_alumno" Association="Self.Fk_idsus_alumno">
+      <End Role="Alumno" EntitySet="Alumno" />
+      <End Role="Suscripcion" EntitySet="Suscripcion" />
+    </AssociationSet>
+    <AssociationSet Name="Fk_idsuscripcion" Association="Self.Fk_idsuscripcion">
+      <End Role="Suscripcion" EntitySet="Suscripcion" />
+      <End Role="Pago" EntitySet="Pago" />
+    </AssociationSet>
+    <AssociationSet Name="Fk_idtipo_pago" Association="Self.Fk_idtipo_pago">
+      <End Role="Tipo_Pago" EntitySet="Tipo_Pago" />
+      <End Role="Pago_Tarjeta" EntitySet="Pago_Tarjeta" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ruta_adm_curso" Association="Self.FK_ruta_adm_curso">
+      <End Role="Curso" EntitySet="Curso" />
+      <End Role="Ruta_Adm" EntitySet="Ruta_Adm" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

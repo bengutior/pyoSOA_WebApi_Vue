@@ -1,0 +1,261 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="PlatziModelStoreContainer" CdmEntityContainer="PlatziEntities">
+    <EntitySetMapping Name="Administrador">
+      <EntityTypeMapping TypeName="PlatziModel.Administrador">
+        <MappingFragment StoreEntitySet="Administrador">
+          <ScalarProperty Name="idadministrador" ColumnName="idadministrador" />
+          <ScalarProperty Name="usunombre" ColumnName="usunombre" />
+          <ScalarProperty Name="perfil" ColumnName="perfil" />
+          <ScalarProperty Name="correo" ColumnName="correo" />
+          <ScalarProperty Name="contrasena" ColumnName="contrasena" />
+          <ScalarProperty Name="estado" ColumnName="estado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Alumno">
+      <EntityTypeMapping TypeName="PlatziModel.Alumno">
+        <MappingFragment StoreEntitySet="Alumno">
+          <ScalarProperty Name="compromiso_hr" ColumnName="compromiso_hr" />
+          <ScalarProperty Name="idalumno" ColumnName="idalumno" />
+          <ScalarProperty Name="alu_perfil" ColumnName="alu_perfil" />
+          <ScalarProperty Name="usu_nombre" ColumnName="usu_nombre" />
+          <ScalarProperty Name="alu_correo" ColumnName="alu_correo" />
+          <ScalarProperty Name="alu_contrasena" ColumnName="alu_contrasena" />
+          <ScalarProperty Name="alu_nombres" ColumnName="alu_nombres" />
+          <ScalarProperty Name="aluapellidos" ColumnName="aluapellidos" />
+          <ScalarProperty Name="alugenero" ColumnName="alugenero" />
+          <ScalarProperty Name="alutelefono" ColumnName="alutelefono" />
+          <ScalarProperty Name="idpais" ColumnName="idpais" />
+          <ScalarProperty Name="alucumpleanos" ColumnName="alucumpleanos" />
+          <ScalarProperty Name="alunivel" ColumnName="alunivel" />
+          <ScalarProperty Name="aluexperiencia" ColumnName="aluexperiencia" />
+          <ScalarProperty Name="alu_tiempo_exp" ColumnName="alu_tiempo_exp" />
+          <ScalarProperty Name="alu_medio_labor" ColumnName="alu_medio_labor" />
+          <ScalarProperty Name="resp_w" ColumnName="resp_w" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Alumno_Empleo">
+      <EntityTypeMapping TypeName="PlatziModel.Alumno_Empleo">
+        <MappingFragment StoreEntitySet="Alumno_Empleo">
+          <ScalarProperty Name="id_alu_empl" ColumnName="id_alu_empl" />
+          <ScalarProperty Name="idempleo" ColumnName="idempleo" />
+          <ScalarProperty Name="idalumno" ColumnName="idalumno" />
+          <ScalarProperty Name="fecha_postulacion" ColumnName="fecha_postulacion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Categoria_Empleo">
+      <EntityTypeMapping TypeName="PlatziModel.Categoria_Empleo">
+        <MappingFragment StoreEntitySet="Categoria_Empleo">
+          <ScalarProperty Name="idcat_emp" ColumnName="idcat_emp" />
+          <ScalarProperty Name="cat_empleo_nombre" ColumnName="cat_empleo_nombre" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Categoria_Escuela">
+      <EntityTypeMapping TypeName="PlatziModel.Categoria_Escuela">
+        <MappingFragment StoreEntitySet="Categoria_Escuela">
+          <ScalarProperty Name="idcat_escuela" ColumnName="idcat_escuela" />
+          <ScalarProperty Name="cat_escuela_nombre" ColumnName="cat_escuela_nombre" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Ciudad">
+      <EntityTypeMapping TypeName="PlatziModel.Ciudad">
+        <MappingFragment StoreEntitySet="Ciudad">
+          <ScalarProperty Name="idciudad" ColumnName="idciudad" />
+          <ScalarProperty Name="ciudad_nombre" ColumnName="ciudad_nombre" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Curso">
+      <EntityTypeMapping TypeName="PlatziModel.Curso">
+        <MappingFragment StoreEntitySet="Curso">
+          <ScalarProperty Name="idcurso" ColumnName="idcurso" />
+          <ScalarProperty Name="curso_idprofesor" ColumnName="curso_idprofesor" />
+          <ScalarProperty Name="curso_idescuela" ColumnName="curso_idescuela" />
+          <ScalarProperty Name="curso_nivel" ColumnName="curso_nivel" />
+          <ScalarProperty Name="curso_nombre" ColumnName="curso_nombre" />
+          <ScalarProperty Name="curso_logo" ColumnName="curso_logo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Empleo">
+      <EntityTypeMapping TypeName="PlatziModel.Empleo">
+        <MappingFragment StoreEntitySet="Empleo">
+          <ScalarProperty Name="idempleo" ColumnName="idempleo" />
+          <ScalarProperty Name="idempl_ciudad" ColumnName="idempl_ciudad" />
+          <ScalarProperty Name="idcat" ColumnName="idcat" />
+          <ScalarProperty Name="empl_modalidad" ColumnName="empl_modalidad" />
+          <ScalarProperty Name="empl_fec_publ" ColumnName="empl_fec_publ" />
+          <ScalarProperty Name="empl_detalle" ColumnName="empl_detalle" />
+          <ScalarProperty Name="empl_nom_emp" ColumnName="empl_nom_emp" />
+          <ScalarProperty Name="empl_titulo" ColumnName="empl_titulo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Escuela">
+      <EntityTypeMapping TypeName="PlatziModel.Escuela">
+        <MappingFragment StoreEntitySet="Escuela">
+          <ScalarProperty Name="idescuela" ColumnName="idescuela" />
+          <ScalarProperty Name="esc_nombre" ColumnName="esc_nombre" />
+          <ScalarProperty Name="esc_logo" ColumnName="esc_logo" />
+          <ScalarProperty Name="esc_idcat" ColumnName="esc_idcat" />
+          <ScalarProperty Name="idalumno" ColumnName="idalumno" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Interes">
+      <EntityTypeMapping TypeName="PlatziModel.Interes">
+        <MappingFragment StoreEntitySet="Interes">
+          <ScalarProperty Name="idinteres" ColumnName="idinteres" />
+          <ScalarProperty Name="idalumno" ColumnName="idalumno" />
+          <ScalarProperty Name="interes_nombre" ColumnName="interes_nombre" />
+          <ScalarProperty Name="interes_descripcion" ColumnName="interes_descripcion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Itinerario_Aprendizaje">
+      <EntityTypeMapping TypeName="PlatziModel.Itinerario_Aprendizaje">
+        <MappingFragment StoreEntitySet="Itinerario_Aprendizaje">
+          <ScalarProperty Name="iditinerario" ColumnName="iditinerario" />
+          <ScalarProperty Name="iditi_alumno" ColumnName="iditi_alumno" />
+          <ScalarProperty Name="iditi_inscrip" ColumnName="iditi_inscrip" />
+          <ScalarProperty Name="iti_nombre" ColumnName="iti_nombre" />
+          <ScalarProperty Name="iti_fech_creacion" ColumnName="iti_fech_creacion" />
+          <ScalarProperty Name="estado" ColumnName="estado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Itinerario_Curso">
+      <EntityTypeMapping TypeName="PlatziModel.Itinerario_Curso">
+        <MappingFragment StoreEntitySet="Itinerario_Curso">
+          <ScalarProperty Name="id_iti_curso" ColumnName="id_iti_curso" />
+          <ScalarProperty Name="id_iticurso_idcurso" ColumnName="id_iticurso_idcurso" />
+          <ScalarProperty Name="id_iticurso_iti" ColumnName="id_iticurso_iti" />
+          <ScalarProperty Name="iti_nombre" ColumnName="iti_nombre" />
+          <ScalarProperty Name="iti_fech_inicio" ColumnName="iti_fech_inicio" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Notificaciones">
+      <EntityTypeMapping TypeName="PlatziModel.Notificaciones">
+        <MappingFragment StoreEntitySet="Notificaciones">
+          <ScalarProperty Name="correo_destino" ColumnName="correo_destino" />
+          <ScalarProperty Name="nombre_destino" ColumnName="nombre_destino" />
+          <ScalarProperty Name="informacion_destino" ColumnName="informacion_destino" />
+          <ScalarProperty Name="ipnotif" ColumnName="ipnotif" />
+          <ScalarProperty Name="fecha" ColumnName="fecha" />
+          <ScalarProperty Name="idalumno" ColumnName="idalumno" />
+          <ScalarProperty Name="idnotificacion" ColumnName="idnotificacion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Pago">
+      <EntityTypeMapping TypeName="PlatziModel.Pago">
+        <MappingFragment StoreEntitySet="Pago">
+          <ScalarProperty Name="idpago" ColumnName="idpago" />
+          <ScalarProperty Name="idsuscripcion" ColumnName="idsuscripcion" />
+          <ScalarProperty Name="idplan" ColumnName="idplan" />
+          <ScalarProperty Name="tipo_pago" ColumnName="tipo_pago" />
+          <ScalarProperty Name="estado" ColumnName="estado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Pago_Tarjeta">
+      <EntityTypeMapping TypeName="PlatziModel.Pago_Tarjeta">
+        <MappingFragment StoreEntitySet="Pago_Tarjeta">
+          <ScalarProperty Name="idpago_tarjeta" ColumnName="idpago_tarjeta" />
+          <ScalarProperty Name="idpago" ColumnName="idpago" />
+          <ScalarProperty Name="idtipo_pago" ColumnName="idtipo_pago" />
+          <ScalarProperty Name="nombre_titular" ColumnName="nombre_titular" />
+          <ScalarProperty Name="numero" ColumnName="numero" />
+          <ScalarProperty Name="mm" ColumnName="mm" />
+          <ScalarProperty Name="aa" ColumnName="aa" />
+          <ScalarProperty Name="cvc" ColumnName="cvc" />
+          <ScalarProperty Name="estado" ColumnName="estado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Pais">
+      <EntityTypeMapping TypeName="PlatziModel.Pais">
+        <MappingFragment StoreEntitySet="Pais">
+          <ScalarProperty Name="idpais" ColumnName="idpais" />
+          <ScalarProperty Name="paisnombre" ColumnName="paisnombre" />
+          <ScalarProperty Name="pais_cod_postal" ColumnName="pais_cod_postal" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Perfil">
+      <EntityTypeMapping TypeName="PlatziModel.Perfil">
+        <MappingFragment StoreEntitySet="Perfil">
+          <ScalarProperty Name="idperfil" ColumnName="idperfil" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="estado" ColumnName="estado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Planes">
+      <EntityTypeMapping TypeName="PlatziModel.Planes">
+        <MappingFragment StoreEntitySet="Planes">
+          <ScalarProperty Name="idplan" ColumnName="idplan" />
+          <ScalarProperty Name="plan_nombre" ColumnName="plan_nombre" />
+          <ScalarProperty Name="plan_descripcion" ColumnName="plan_descripcion" />
+          <ScalarProperty Name="plan_precio" ColumnName="plan_precio" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Profesor">
+      <EntityTypeMapping TypeName="PlatziModel.Profesor">
+        <MappingFragment StoreEntitySet="Profesor">
+          <ScalarProperty Name="idprofesor" ColumnName="idprofesor" />
+          <ScalarProperty Name="prof_usunombre" ColumnName="prof_usunombre" />
+          <ScalarProperty Name="profcorreo" ColumnName="profcorreo" />
+          <ScalarProperty Name="pro_perfil" ColumnName="pro_perfil" />
+          <ScalarProperty Name="profcontrasena" ColumnName="profcontrasena" />
+          <ScalarProperty Name="prof_nombre" ColumnName="prof_nombre" />
+          <ScalarProperty Name="prof_apellidos" ColumnName="prof_apellidos" />
+          <ScalarProperty Name="prof_documento" ColumnName="prof_documento" />
+          <ScalarProperty Name="prof_especialidad" ColumnName="prof_especialidad" />
+          <ScalarProperty Name="prof_telef" ColumnName="prof_telef" />
+          <ScalarProperty Name="prof_foto" ColumnName="prof_foto" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Ruta_Adm">
+      <EntityTypeMapping TypeName="PlatziModel.Ruta_Adm">
+        <MappingFragment StoreEntitySet="Ruta_Adm">
+          <ScalarProperty Name="idruta_adm" ColumnName="idruta_adm" />
+          <ScalarProperty Name="ruta_adm_nombre" ColumnName="ruta_adm_nombre" />
+          <ScalarProperty Name="ruta_adm_interes" ColumnName="ruta_adm_interes" />
+          <ScalarProperty Name="ruta_adm_tema" ColumnName="ruta_adm_tema" />
+          <ScalarProperty Name="ruta_adm_nivel" ColumnName="ruta_adm_nivel" />
+          <ScalarProperty Name="ruta_adm_descripcion" ColumnName="ruta_adm_descripcion" />
+          <ScalarProperty Name="id_ruta_adm_curso" ColumnName="id_ruta_adm_curso" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Suscripcion">
+      <EntityTypeMapping TypeName="PlatziModel.Suscripcion">
+        <MappingFragment StoreEntitySet="Suscripcion">
+          <ScalarProperty Name="idsuscripcion" ColumnName="idsuscripcion" />
+          <ScalarProperty Name="idalumno" ColumnName="idalumno" />
+          <ScalarProperty Name="sus_tipo" ColumnName="sus_tipo" />
+          <ScalarProperty Name="sus_estado" ColumnName="sus_estado" />
+          <ScalarProperty Name="sus_fech_inicio" ColumnName="sus_fech_inicio" />
+          <ScalarProperty Name="sus_fech_venc" ColumnName="sus_fech_venc" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tipo_Pago">
+      <EntityTypeMapping TypeName="PlatziModel.Tipo_Pago">
+        <MappingFragment StoreEntitySet="Tipo_Pago">
+          <ScalarProperty Name="idtipo" ColumnName="idtipo" />
+          <ScalarProperty Name="tipo" ColumnName="tipo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
